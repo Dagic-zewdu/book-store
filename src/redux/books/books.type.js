@@ -1,0 +1,7 @@
+const booksActionType = {
+  FETCH_BOOKS_START: 'FETCH_BOOKS_START',
+  FETCH_BOOKS_SUCCESS: 'FETCH_BOOKS_SUCCESS',
+  FETCH_BOOKS_FAILURE: 'FETCH_BOOKS_FAILURE',
+};
+
+export default booksActionType;
