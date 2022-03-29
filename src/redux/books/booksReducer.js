@@ -1,4 +1,4 @@
-import booksActionType from './books.type';
+import booksActionType from './booksType';
 
 const INITIAL_STATE = {
   books: [],

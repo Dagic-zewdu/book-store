@@ -1,14 +1,22 @@
-import categoriesActionType from './categories.type';
+import categoriesActionType from './categoriesType';
 
-const INITIAL_STATE = {
-  categories: [],
-};
-const categoriesReducer = (state = INITIAL_STATE, action) => {
+const categories = [
+  'Action and Adventure',
+  'Classics',
+  'Comic Book or Graphic Novel',
+  'Detective and Mystery',
+  'Fantasy',
+  'Historical Fiction',
+  'Horror',
+  'Literary Fiction',
+];
+
+const categoriesReducer = (state = categories, action) => {
   switch (action.type) {
     case categoriesActionType.CHECK_STATUS:
       return {
         ...state,
-        categories: 'Under construction',
+        check_status: 'under construction',
       };
     default:
       return state;

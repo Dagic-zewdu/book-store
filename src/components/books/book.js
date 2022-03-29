@@ -1,15 +1,24 @@
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../../redux/books/booksAction';
+import checkStatus from '../../redux/categories/categoriesAction';
 
-function Book() {
+/* eslint-disable react/prop-types */
+function Book({ book }) {
+  const dispatch = useDispatch();
   return (
     <div className="book-detail">
       <div className="desc">
-        <h4>Category</h4>
-        <h2>Title</h2>
+        <h4>{book.category}</h4>
+        <h2>{book.title}</h2>
         <p>Frank Herbert</p>
         <div className="links">
           <p className="comment">Comments</p>
-          <p><button type="button" className="btn">Remove</button></p>
+          <p>
+            <button type="button" className="btn" onClick={() => dispatch(removeBook(book.id))}>
+              Remove
+            </button>
+          </p>
           <p className="edit">Edit</p>
         </div>
       </div>
@@ -18,8 +27,8 @@ function Book() {
           <div style={{ width: 68, height: 68 }} className="circle-bar" />
         </div>
         <div>
-          <h4>book id</h4>
-          <p>Completed</p>
+          <h4>{book.id}</h4>
+          <p>{book.completed ? 'completed' : 'Remaining few chapter'}</p>
         </div>
 
       </div>
@@ -28,7 +37,7 @@ function Book() {
         <p>
           Chapter 3:A Lesson Learned
         </p>
-        <button type="button">UPDATE PROGRESS</button>
+        <button type="button" onClick={() => dispatch(checkStatus(book.category))}>CHECK STATUS</button>
       </div>
     </div>
   );
