@@ -1,7 +1,6 @@
 const booksActionType = {
-  FETCH_BOOKS_START: 'FETCH_BOOKS_START',
-  FETCH_BOOKS_SUCCESS: 'FETCH_BOOKS_SUCCESS',
-  FETCH_BOOKS_FAILURE: 'FETCH_BOOKS_FAILURE',
+  ADD_BOOK: 'bookstore/books/ADD_BOOK',
+  REMOVE_BOOK: 'bookstore/books/REMOVE_BOOK',
 };
 
 export default booksActionType;

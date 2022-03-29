@@ -1,29 +1,19 @@
 import booksActionType from './books.type';
 
 const INITIAL_STATE = {
-  loading: true,
   books: [],
-  error: false,
 };
 const booksReducer = (state = INITIAL_STATE, action) => {
-  switch (action) {
-    case booksActionType.FETCH_BOOKS_START:
+  switch (action.type) {
+    case booksActionType.ADD_BOOK:
       return {
-        ...state,
-        loading: true,
+        books: [...state.books, action.payload],
       };
-    case booksActionType.FETCH_BOOKS_SUCCESS:
+    case booksActionType.REMOVE_BOOK:
       return {
-        books: action.payload,
-        loading: false,
-        error: false,
+        books: state.books.filter((book) => book.id !== action.payload),
       };
-    case booksActionType.FETCH_BOOKS_FAILURE:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
-      };
+
     default:
       return state;
   }

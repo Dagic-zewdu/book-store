@@ -1,28 +1,14 @@
 import categoriesActionType from './categories.type';
 
 const INITIAL_STATE = {
-  loading: true,
   categories: [],
-  error: false,
 };
 const categoriesReducer = (state = INITIAL_STATE, action) => {
-  switch (action) {
-    case categoriesActionType.FETCH_CATEGORIES_START:
+  switch (action.type) {
+    case categoriesActionType.CHECK_STATUS:
       return {
         ...state,
-        loading: true,
-      };
-    case categoriesActionType.FETCH_CATEGORIES_SUCCESS:
-      return {
-        categories: action.payload,
-        loading: false,
-        error: false,
-      };
-    case categoriesActionType.FETCH_CATEGORIES_FAILURE:
-      return {
-        ...state,
-        loading: false,
-        error: action.payload,
+        categories: 'Under construction',
       };
     default:
       return state;
