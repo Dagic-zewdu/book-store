@@ -1,3 +1,4 @@
+/* eslint-disable radix */
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
@@ -36,8 +37,11 @@ function Book({ book, itemId }) {
           </div>
         </div>
         <div>
-          <h4>{itemId}</h4>
-          <p>Remaining few chapter</p>
+          <h4>
+            {Math.floor(itemId / 1000)}
+            %
+          </h4>
+          <p>Completed</p>
         </div>
 
       </div>
