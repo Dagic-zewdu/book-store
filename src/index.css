@@ -79,7 +79,7 @@
 }
 
 .book-detail .desc h4 {
-  width: 10rem;
+  width: 20rem;
   height: 1.125rem;
   margin: 0 4rem 0 0;
   opacity: 0.5;
@@ -313,4 +313,18 @@ a {
 
 a.active {
   color: blue;
+}
+
+.spinner {
+  height: 50vh;
+  width: 100%;
+  object-fit: cover;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.danger {
+  color: red;
 }

@@ -1,21 +1,21 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../../redux/books/booksAction';
+import { removeBookAsync } from '../../redux/books/actions/asyncActions';
 import checkStatus from '../../redux/categories/categoriesAction';
 
 /* eslint-disable react/prop-types */
-function Book({ book }) {
+function Book({ book, itemId }) {
   const dispatch = useDispatch();
   return (
     <div className="book-detail">
       <div className="desc">
         <h4>{book.category}</h4>
         <h2>{book.title}</h2>
-        <p>Frank Herbert</p>
+        <p>{book.author}</p>
         <div className="links">
           <p className="comment">Comments</p>
           <p>
-            <button type="button" className="btn" onClick={() => dispatch(removeBook(book.id))}>
+            <button type="button" className="btn" onClick={() => dispatch(removeBookAsync(itemId))}>
               Remove
             </button>
           </p>
@@ -27,8 +27,8 @@ function Book({ book }) {
           <div style={{ width: 68, height: 68 }} className="circle-bar" />
         </div>
         <div>
-          <h4>{book.id}</h4>
-          <p>{book.completed ? 'completed' : 'Remaining few chapter'}</p>
+          <h4>{itemId}</h4>
+          <p>Remaining few chapter</p>
         </div>
 
       </div>
