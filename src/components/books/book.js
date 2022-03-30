@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 import { removeBookAsync } from '../../redux/books/actions/asyncActions';
 import checkStatus from '../../redux/categories/categoriesAction';
 
@@ -24,7 +25,15 @@ function Book({ book, itemId }) {
       </div>
       <div className="progress-bar">
         <div className="outer-circle">
-          <div style={{ width: 68, height: 68 }} className="circle-bar" />
+          <div style={{ width: 68, height: 68 }} className="circle-bar">
+            <CircularProgressbar
+              value={90}
+              styles={buildStyles({
+                pathColor: '#0290ff',
+                rotation: 90,
+              })}
+            />
+          </div>
         </div>
         <div>
           <h4>{itemId}</h4>
