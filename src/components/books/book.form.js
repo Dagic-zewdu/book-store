@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { addBook, createBook } from '../../redux/books/booksAction';
+import { addBooksAsync } from '../../redux/books/actions/asyncActions';
+import { createBook } from '../../redux/books/actions/baseActions';
 
 function BookForm() {
   const categories = useSelector((state) => state.categoriesReducer);
@@ -8,6 +9,7 @@ function BookForm() {
   const [state, setState] = useState({
     title: '',
     category: '',
+    author: '',
   });
   const handleChange = (e) => {
     e.persist();
@@ -18,7 +20,8 @@ function BookForm() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(addBook(createBook(state.title, state.category)));
+    dispatch(addBooksAsync(createBook(state.title, state.category, state.author)));
+    setState({ author: '', category: '', title: '' });
   };
   return (
     <div className="book-form">
@@ -31,6 +34,14 @@ function BookForm() {
           placeholder="Book title"
           onChange={handleChange}
           value={state.title}
+        />
+        <input
+          id="author"
+          required
+          name="author"
+          placeholder="Author"
+          onChange={handleChange}
+          value={state.author}
         />
         <select
           name="category"
